@@ -1,24 +1,23 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
-
+from django.http import HttpResponse
 
 # Create your views here.
 
 def inicio(request):
-    return HttpResponse('vista inicio')
+    return render(request, 'AppCoder/inicio.html')
 
 def cursos(request):
-    return HttpResponse('vista cursos')
+    return render(request, 'AppCoder/cursos.html')
 
 def profesores(request):
-    return HttpResponse('vista profesores')
+    return render(request, 'AppCoder/profesores.html')
 
 def estudiantes(request):
-    return HttpResponse('vista estudiantes')
+    return render(request, 'AppCoder/estudiantes.html')
 
 def entregables(request):
-    return HttpResponse('vista entregables')
+    return render(request, 'AppCoder/entregables.html')
 
 
 
