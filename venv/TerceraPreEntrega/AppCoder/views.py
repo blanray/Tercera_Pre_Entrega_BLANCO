@@ -4,11 +4,16 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+from .models import *
+
 def inicio(request):
-    return render(request, './static/AppCoder/index.html')
+    return render(request, 'AppCoder/inicio.html')
 
 def cursos(request):
-    return render(request, 'AppCoder/cursos.html')
+
+    cursos = Curso.objects.all()
+
+    return render(request, 'AppCoder/cursos.html', {'cursos': cursos})
 
 def profesores(request):
     return render(request, 'AppCoder/profesores.html')
