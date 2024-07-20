@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesores</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "AppCoder/base.html" %}
+
+{% block titulo %} PAB - Entrega 3 | Profesores {% endblock titulo %}
+
+{% block formularioClase %}
+
+<div class="container py-2">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Profesion</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if profesores %}
+                {% for profesor in profesores %}
+                <tr>
+                    <td>{{profesor.nombre}}</td>
+                    <td>{{profesor.apellido}}</td>
+                    <td>{{profesor.email}}</td>
+                    <td>{{profesor.profesion}}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <th scope="row"></th>
+                    <td>No hay registros para mostrar</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock formularioClase %}

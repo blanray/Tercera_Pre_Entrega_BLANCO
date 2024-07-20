@@ -16,13 +16,22 @@ def cursos(request):
     return render(request, 'AppCoder/cursos.html', {'cursos': cursos})
 
 def profesores(request):
-    return render(request, 'AppCoder/profesores.html')
+
+    profesores = Profesor.objects.all()
+
+    return render(request, 'AppCoder/profesores.html', {'profesores': profesores})
 
 def estudiantes(request):
-    return render(request, 'AppCoder/estudiantes.html')
+
+    estudiantes = Estudiante.objects.all()
+
+    return render(request, 'AppCoder/estudiantes.html', {'estudiantes': estudiantes})
 
 def entregables(request):
-    return render(request, 'AppCoder/entregables.html')
+
+    entregables = Entregable.objects.all()
+
+    return render(request, 'AppCoder/entregables.html', {'entregables':entregables})
 
 
 

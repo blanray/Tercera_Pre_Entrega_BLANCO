@@ -4,8 +4,31 @@
 
 {% block formularioClase %}
 
-<div class = "container-fluid text-center">
-    <h1 class="display-3">CURSOS</h1>
+<div class="container py-2">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Camada</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if cursos %}
+                {% for curso in cursos %}
+                <tr>
+                    <td>{{curso.nombre}}</td>
+                    <td>{{curso.camada}}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <th scope="row"></th>
+                    <td>No hay registros para mostrar</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
 </div>
-
 {% endblock formularioClase %}
