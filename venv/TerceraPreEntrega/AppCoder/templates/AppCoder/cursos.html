@@ -13,14 +13,14 @@
             <form method="post">{% csrf_token %}
                 <div class="md-4">
                     <label for="nombreCurso" class="form-label">Nombre del Curso</label>
-                    <input type="text" class="form-control" id="nombreCurso">
+                    <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" required>
                 </div>
                 <div class="md-4">
                     <label for="numeroCamada" class="form-label">Numero de Camada</label>
-                    <input type="number" class="form-control" id="numeroCamada" min= 1 max=99999>
+                    <input type="number" class="form-control" id="numeroCamada" name = "numeroCamada" min= 1 max=99999 required>
                 </div>
                 <div class="py-2">
-                    <button type="submit" class="btn btn-success">Agregar</button>
+                    <button type="submit" class="btn btn-success opacity-75">Agregar</button>
                 </div>
             </form>
        </div>
@@ -41,6 +41,12 @@
                             <td hidden>{{curso.id}}</td>
                             <td>{{curso.nombre}}</td>
                             <td>{{curso.camada}}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger opacity-75">Eliminar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning opacity-75">Editar</button>
+                            </td>
                         </tr>
                         {% endfor %}
                     {% else %}

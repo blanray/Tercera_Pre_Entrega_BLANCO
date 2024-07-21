@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from django.template import loader
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -11,6 +9,17 @@ def inicio(request):
 
 def cursos(request):
 
+    if request.method == 'POST':
+
+        misId = Curso.objects.latest('id')
+        nuevoId = misId.id + 1
+
+        curso = Curso(nuevoId,request.POST['nombreCurso'], request.POST['numeroCamada'])
+        curso.save()
+        return redirect('cursos')
+
+
+    
     cursos = Curso.objects.all()
 
     return render(request, 'AppCoder/cursos.html', {'cursos': cursos})
