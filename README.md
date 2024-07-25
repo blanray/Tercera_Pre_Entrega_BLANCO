@@ -1,7 +1,7 @@
 Tercera Pre Entrega Pablo Blanco:
 - El proyecto fue realizado en un entorno virtual dentro de la carpeta "venv"
 - Se incluyen archivos "requirements.txt" y "gitignore"
-- Activando el entorno virtual y ejecutando el servidor, la direccion de la app es localhost:port/AppCoder
+- Activando el entorno virtual y ejecutando el servidor, la direccion de la app es localhost:port/PB_E3
 - Una vez en inicio, se van a encontrar las 4 clases vistas en el menu de la navbar y cuando se selecciona un modelo, se despliega debajo de la imagen "base":
     - un formulario para el alta
     - una lista de los elementos existentes en la tabla con los botones "Eliminar" y "Editar" embebidos en cada registro

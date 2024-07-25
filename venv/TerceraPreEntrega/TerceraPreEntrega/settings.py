@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AppCoder',
+    'PB_E3',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'TerceraPreEntrega.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR/'.\AppCoder'],
+        'DIRS': [ BASE_DIR/'.\PB_E3'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,8 +1,8 @@
-{% extends "AppCoder/base.html" %}
+{% extends "PB_E3/base.html" %}
 
-{% block titulo %} PAB - Entrega 3 | Estudiantes {% endblock titulo %}
+{% block titulo %} PAB - Entrega 3 | Profesores {% endblock titulo %}
 
-{% block modelo %}ESTUDIANTES{% endblock modelo %}
+{% block modelo %}PROFESORES{% endblock modelo %}
 
 {% block formularioClase %}
 
@@ -34,16 +34,18 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Profesion</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% if estudiantes %}
-                        {% for estudiante in estudiantes %}
+                    {% if profesores %}
+                        {% for profesor in profesores %}
                         <tr>
-                            <td hidden>{{estudiante.id}}</td>
-                            <td>{{estudiante.nombre}}</td>
-                            <td>{{estudiante.apellido}}</td>
-                            <td>{{estudiante.email}}</td>
+                            <td hidden>{{profesor.id}}</td>
+                            <td>{{profesor.nombre}}</td>
+                            <td>{{profesor.apellido}}</td>
+                            <td>{{profesor.email}}</td>
+                            <td>{{profesor.profesion}}</td>
                         </tr>
                         {% endfor %}
                     {% else %}

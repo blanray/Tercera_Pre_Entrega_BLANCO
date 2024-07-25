@@ -1,12 +1,13 @@
-{% extends "AppCoder/base.html" %}
+{% extends "PB_E3/base.html" %}
 
-{% block titulo %} PAB - Entrega 3 | Profesores {% endblock titulo %}
+{% block titulo %} PAB - Entrega 3 | Entregables {% endblock titulo %}
 
-{% block modelo %}PROFESORES{% endblock modelo %}
+{% block modelo %}ENTREGABLES{% endblock modelo %}
 
 {% block formularioClase %}
 
 <div class="container py-2">
+
     <div class="row">
         <div class="col-md-4">
             <form>
@@ -32,20 +33,18 @@
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Profesion</th>
+                            <th scope="col">Fecha de Entrega</th>
+                            <th scope="col">Entregado</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% if profesores %}
-                        {% for profesor in profesores %}
+                    {% if entregables %}
+                        {% for entregable in entregables %}
                         <tr>
-                            <td hidden>{{profesor.id}}</td>
-                            <td>{{profesor.nombre}}</td>
-                            <td>{{profesor.apellido}}</td>
-                            <td>{{profesor.email}}</td>
-                            <td>{{profesor.profesion}}</td>
+                            <td hidden>{{entregable.id}}</td>
+                            <td>{{entregable.nombre}}</td>
+                            <td>{{entregable.fechaDeEntrega}}</td>
+                            <td>{{entregable.entregado}}</td>
                         </tr>
                         {% endfor %}
                     {% else %}
