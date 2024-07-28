@@ -10,17 +10,26 @@
 
     <div class="row">
         <div class="col-md-4">
-            <form method="post">{% csrf_token %}
-                <div class="md-4">
-                    <label for="nombreCurso" class="form-label">Nombre del Curso</label>
-                    <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" required>
-                </div>
-                <div class="md-4">
-                    <label for="numeroCamada" class="form-label">Numero de Camada</label>
-                    <input type="number" class="form-control" id="numeroCamada" name = "numeroCamada" min= 1 max=99999 required>
-                </div>
-                <div class="py-2">
-                    <button type="submit" class="btn btn-success opacity-75">Agregar</button>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <li class="list-group-item-success">{{ message }}</li>
+                        {% else %}
+                            <li class="list-group-item-danger">{{ message }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                {{ miFormCursos.as_table }}
+         
+                 <div class="py-2">
+                     <button type="submit" class="btn btn-success opacity-75">Agregar</button>
                 </div>
             </form>
        </div>
@@ -42,10 +51,10 @@
                             <td>{{curso.nombre}}</td>
                             <td>{{curso.camada}}</td>
                             <td>
-                                <button type="button" class="btn btn-danger opacity-75">Eliminar</button>
+                                <a class="btn btn-danger opacity-75 btn-sm" role="button" aria-disabled="true" href=" {% url 'eliminarCurso' curso.id %}">Eliminar</a>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-warning opacity-75">Editar</button>
+                                <a class="btn btn-warning opacity-75 btn-sm" role="button" aria-disabled="true" href=" {% url 'editarCurso' curso.id %}">Editar</a>
                             </td>
                         </tr>
                         {% endfor %}

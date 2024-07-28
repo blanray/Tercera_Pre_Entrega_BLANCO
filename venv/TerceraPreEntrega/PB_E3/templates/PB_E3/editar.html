@@ -1,0 +1,40 @@
+{% extends "PB_E3/base.html" %}
+
+{% block titulo %} PAB - Entrega 3 | Formulario de Edición {% endblock titulo %}
+
+{% block modelo %}EDICION - {{ miEdicion }}{% endblock modelo %}
+
+{% block formularioClase %}
+
+<div class="container py-2">
+
+    <div class="row">
+        <div class="col-md-4">
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                        <li class="list-group-item-success">{{ message }}</li>
+                    {% else %}
+                        <li class="list-group-item-danger">{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <form action=" {% url 'editar' miIdMain %}" method="post">
+                {% csrf_token %}
+
+                {{ miForm.as_table }}
+                    <input type="text" name ="miEdicion" class="form_control" hidden value={{miEdicion}}>
+                    <input type="number" name ="miIdMain" class="form_control" hidden value={{miIdMain}}>
+                 <div class="py-2">
+                    <button type="submit" class="btn btn-success opacity-75">Confirmar</button>
+                     <a class="btn btn-danger opacity-75 btn-sm" role="button" aria-disabled="true" href=" {% url 'index' %}">Cancelar</a>
+                </div>
+            </form>
+       </div>
+    </div>
+</div>
+{% endblock formularioClase %}
