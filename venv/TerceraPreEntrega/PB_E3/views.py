@@ -7,7 +7,38 @@ from .forms import *
 
 
 def inicio(request):
-    return render(request, 'PB_E3/inicio.html')
+
+    if request.method == 'POST':
+
+        miFormBusqueda = BusquedaFormulario(request.POST)
+
+        if miFormBusqueda.is_valid():
+
+            miInfo = miFormBusqueda.cleaned_data
+
+            if miInfo['modelo'] == 'curso':
+                misResultados = Curso.objects.filter(nombre__icontains=miInfo['criterio'])
+
+            elif miInfo['modelo'] == 'profesor':
+                misResultados = Profesor.objects.filter(nombre__icontains=miInfo['criterio'])
+
+            elif miInfo['modelo'] == 'estudiante':
+                misResultados = Estudiante.objects.filter(nombre__icontains=miInfo['criterio'])
+
+            elif miInfo['modelo'] == 'entregable':
+                misResultados = Entregable.objects.filter(nombre__icontains=miInfo['criterio'])
+
+            else:
+                misResultados = None
+        else:
+            miFormBusqueda = BusquedaFormulario()
+            messages.error(request, 'Error en los datos ingresados, intente nuevamente')
+
+    else:
+        miFormBusqueda = BusquedaFormulario()
+        misResultados = None
+
+    return render(request, 'PB_E3/inicio.html', {'miFormBusqueda': miFormBusqueda, 'misResultados': misResultados})
 
 def cursos(request):
 
@@ -55,7 +86,6 @@ def editarCurso(request, idCurso):
     miEdicion = 'Curso'
 
     return render(request, 'PB_E3/editar.html', {'miForm': miFormulario, 'miIdMain': miIdMain, 'miEdicion': miEdicion})
-
 
 def editar(request, miIdMain):
 
@@ -208,7 +238,6 @@ def editarEstudiante(request, idEstudiante):
     miEdicion = 'Estudiante'
 
     return render(request, 'PB_E3/editar.html', {'miForm': miFormulario, 'miIdMain': miIdMain, 'miEdicion': miEdicion})
-
 
 def entregables(request):
 
