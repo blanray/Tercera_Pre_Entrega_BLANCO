@@ -71,6 +71,6 @@ class EntregableFormulario(forms.Form):
         'placeholder': 'Nombre del entregable (1 a 30 caracteres)',
         }
     ))
-    fechaDeEntrega = forms.DateField(widget=forms.DateTimeInput(attrs={'class':'form-control'}))
-    entregado = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'form-control', 'checked': False}))
+    fecha = forms.DateField(label = 'Fecha de Entrega', widget=forms.DateInput(attrs={'type':'date', 'class': 'form-control'}))
+    entregado = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'form-control', 'checked': False}))
 

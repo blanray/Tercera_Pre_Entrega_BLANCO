@@ -26,7 +26,7 @@
         <form method="post">
             {% csrf_token %}
 
-            {{ miFormEntregables.as_table }}
+            {{ miFormEntregables }}
      
              <div class="py-2">
                  <button type="submit" class="btn btn-success opacity-75">Agregar</button>
@@ -51,7 +51,7 @@
                         <tr>
                             <td hidden>{{entregable.id}}</td>
                             <td>{{entregable.nombre}}</td>
-                            <td>{{entregable.fechaDeEntrega}}</td>
+                            <td>{{entregable.fecha}}</td>
                             <td>{{entregable.entregado}}</td>
                             <td>
                                 <a class="btn btn-danger opacity-75 btn-sm" role="button" aria-disabled="true" href=" {% url 'eliminarEntregable' entregable.id %}">Eliminar</a>

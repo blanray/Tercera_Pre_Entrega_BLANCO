@@ -99,6 +99,19 @@ def editar(request, miIdMain):
 
             return redirect('editarEstudiante', idEstudiante=miIdMain)
 
+        elif request.POST['miEdicion'] == 'Entregable':
+            miFormEntregables = EntregableFormulario(request.POST)
+            if miFormEntregables.is_valid():
+                miInfo = miFormEntregables.cleaned_data
+                entregable = Entregable(id = request.POST['miIdMain'], nombre = miInfo['nombre'], fecha = miInfo['fecha'], entregado = miInfo['entregado'])
+                entregable.save()
+                messages.success(request, 'Registro actualizado exitosamente')
+
+            else:
+                messages.error(request, 'Error en los datos ingresados, intente nuevamente')
+
+            return redirect('editarEntregable', idEntregable=miIdMain)
+
 
     return render(request, 'PB_E3/inicio.html')
 
@@ -207,7 +220,7 @@ def entregables(request):
 
             miInfo = miFormEntregables.cleaned_data
 
-            entregable = Entregable(nombre = miInfo['nombre'], fechaDeEntrega = miInfo['fechaDeEntrega'], entregado = miInfo['entregado'])
+            entregable = Entregable(nombre = miInfo['nombre'], fecha = miInfo['fecha'], entregado = miInfo['entregado'])
             entregable.save()
 
             messages.success(request, 'Registro agregado exitosamente')
@@ -237,7 +250,7 @@ def eliminarEntregable(request, idEntregable):
 def editarEntregable(request, idEntregable):
 
     entregable = Entregable.objects.get(id=idEntregable)
-    miFormulario = EntregableFormulario(initial={'nombre' : entregable.nombre, 'fechaDeEntrega' : entregable.fechaDeEntrega, 'entregado' : entregable.entregado})
+    miFormulario = EntregableFormulario(initial={'nombre' : entregable.nombre, 'fecha' : entregable.fecha, 'entregado' : entregable.entregado})
     miIdMain = idEntregable
     miEdicion = 'Entregable'
 
