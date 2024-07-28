@@ -72,7 +72,7 @@ class EntregableFormulario(forms.Form):
         }
     ))
     fecha = forms.DateField(label = 'Fecha de Entrega', widget=forms.DateInput(attrs={'type':'date', 'class': 'form-control'}))
-    entregado = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'form-control', 'checked': False}))
+    entregado = forms.BooleanField(required=False)
 
 class BusquedaFormulario(forms.Form):
     opciones=[

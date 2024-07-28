@@ -33,7 +33,7 @@ class Entregable(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30)
     fecha = models.DateField()
-    entregado = models.BooleanField(blank=True)
+    entregado = models.BooleanField(blank=True, default=False)
 
     def __str__(self):
         return f'Entrergable | Id: {self.id} - Nombre: {self.nombre} - Fecha de Entrega: {self.fecha} - Entregado: {self.entregado}'
