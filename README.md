@@ -31,3 +31,15 @@ Tercera Pre Entrega Pablo Blanco:
 
 - Todos los formularios fueron creados con django forms.
 
+- Ejemplos de las vistas:
+    - Alta de un curso:
+        ![alt text](image-4.png)
+
+    - Edicion de un estudiante:
+        ![alt text](image-7.png)
+
+    - Borrado de un profesor:
+        ![alt text](image-8.png)
+
+    - Busqueda de un entregable:
+        ![alt text](image-9.png)

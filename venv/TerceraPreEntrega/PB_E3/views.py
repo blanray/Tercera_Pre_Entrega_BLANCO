@@ -73,6 +73,7 @@ def eliminarCurso(request, idCurso):
     try:
         curso = Curso.objects.get(id=idCurso)
         curso.delete()
+        messages.success(request, 'Registro eliminado exitosamente')
     except:
         pass
 
@@ -178,6 +179,7 @@ def eliminarProfesor(request, idProfesor):
     try:
         profesor = Profesor.objects.get(id=idProfesor)
         profesor.delete()
+        messages.success(request, 'Registro eliminado exitosamente')
     except:
         pass
 
@@ -225,6 +227,7 @@ def eliminarEstudiante(request, idEstudiante):
     try:
         estudiante = Estudiante.objects.get(id=idEstudiante)
         estudiante.delete()
+        messages.success(request, 'Registro eliminado exitosamente')
     except:
         pass
 
@@ -271,6 +274,7 @@ def eliminarEntregable(request, idEntregable):
     try:
         entregable = Entregable.objects.get(id=idEntregable)
         entregable.delete()
+        messages.success(request, 'Registro eliminado exitosamente')
     except:
         pass
 
